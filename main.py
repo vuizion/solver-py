@@ -213,21 +213,21 @@ def meth_bal():
 
 
     #On affiche toute les valeur de f(1) à f(8)
+    x=0
+    y=-1
+    add_to_x = float(1)
 
-    for j in range(1,9):
-        calc = a*j*j+b*j+c
-        print("f(" + str(j) + ") = " + str(calc))
-        time.sleep(0.3)
-
-    #x=0
-    #y=0
-    #while y < 0:
-    #    x = x + 1
-    #    y = a*x*x+b*x+c
-    #borne_min = x-1
-    #borne_max = x 
-    #print(borne_max)
-    #print(borne_min)
+    while add_to_x > 0.0001:
+        while y < 0:
+            x = round(x + add_to_x, 3)
+            y = a*x*x + b*x + c
+        borne_min = round(x-add_to_x, 3)
+        borne_max = x
+        x = x-add_to_x
+        y = -1
+        add_to_x = add_to_x/10
+    print("Le résultat se trouve dans l'intervale [" + Fore.LIGHTBLUE_EX + str(borne_min) + ";" + str(borne_max) + Fore.RESET + "] avec ")
+    print("")
 
 
 
