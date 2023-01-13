@@ -1,6 +1,9 @@
 #Importation de la biliothèque OS
 import os
 
+#Importation de la bibliothèque TIME
+import time
+
 #Importation de la bibliothèque des couleurs
 from colorama import init
 init()
@@ -171,6 +174,66 @@ def deux_deg():
 
 
 
+################
+## Résolution par la méthode balayage
+################
+
+def meth_bal():
+    #TODO: Faire le code pour balayage
+    print("")
+    print("-----------------------")
+    print("")
+
+
+    #On affiche le type d'équation que l'utilisateur à choisi
+    print("Vous avez choisi : " + Fore.LIGHTBLUE_EX + "MÉTHODE PAR BALAYAGE" + Fore.RESET)
+
+
+    #On donne un exemple d'équation
+    print("Pour résoudre une équation du type '" + Fore.LIGHTYELLOW_EX + "a" + Fore.RESET + "x² + " + Fore.LIGHTYELLOW_EX + "b" + Fore.RESET + "x + " + Fore.LIGHTYELLOW_EX + "c" + Fore.RESET + " = 0'")
+    print("")
+
+
+    #On demande à l'utilisateur la valeur des lettres
+    a = float(input("> Indiquez la valeur de '" + Fore.LIGHTYELLOW_EX + "a" + Fore.RESET + "' : "))
+    print("")
+    b = float(input("> Indiquez maintenant la valeur de '" + Fore.LIGHTYELLOW_EX + "b" + Fore.RESET + "' : "))
+    print("")
+    c = float(input("> Puis indiquez la valeur de '" + Fore.LIGHTYELLOW_EX + "c" + Fore.RESET + "' : "))
+
+
+    print("")
+    print("-----------------------")
+    print("")
+
+
+    #On montre à l'utilisateur l'équation qui va être résolue
+    print("L'équation à résoudre est '" + Fore.LIGHTYELLOW_EX + str(a) + Fore.RESET + "x² + " + Fore.LIGHTYELLOW_EX + str(b) + Fore.RESET + "x + " + Fore.LIGHTYELLOW_EX + str(c) + Fore.RESET + " = 0'.")
+    print("")
+
+
+    #On affiche toute les valeur de f(1) à f(8)
+
+    for j in range(1,9):
+        calc = a*j*j+b*j+c
+        print("f(" + str(j) + ") = " + str(calc))
+        time.sleep(0.3)
+
+    #x=0
+    #y=0
+    #while y < 0:
+    #    x = x + 1
+    #    y = a*x*x+b*x+c
+    #borne_min = x-1
+    #borne_max = x 
+    #print(borne_max)
+    #print(borne_min)
+
+
+
+
+
+
 
 
 ###########################################
@@ -190,6 +253,7 @@ print("")
 print("Veuillez choisir le type d'équation svp :")
 print(Fore.LIGHTGREEN_EX + "1 : Équation du premier degrés" + Fore.RESET)
 print(Fore.LIGHTMAGENTA_EX + "2 : Équation du second degrés" + Fore.RESET)
+print(Fore.LIGHTBLUE_EX + "3 : Équation résolue par méthode balayage" + Fore.RESET)
 print("")
 
 
@@ -221,6 +285,11 @@ while i==1 :
     #Si l'utilisateur choisi une équation du deuxième degrés, exécuter la fonction "deux_deg"
     elif choice == 2:
         deux_deg()
+        i=0
+
+    #Si l'utilisateur choisi une équation du deuxième degrés, exécuter la fonction "deux_deg"
+    elif choice == 3:
+        meth_bal()
         i=0
 
     #Si l'utilisateur ne choisi pas un réponse préenregistrée, l'erreur lui est communiquée
