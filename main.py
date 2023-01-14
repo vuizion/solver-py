@@ -212,20 +212,42 @@ def meth_bal():
     print("")
 
 
-    #On affiche toute les valeur de f(1) à f(8)
-    x=0
+    #On donne des valeurs par défaut aux variables
+    x=1
     y=-1
     add_to_x = float(1)
+    borne_min = 0
+    borne_max = 0
 
+
+    #On créer une boucle pour affiner notre résultat
     while add_to_x > 0.0001:
-        while y < 0:
-            x = round(x + add_to_x, 3)
-            y = a*x*x + b*x + c
-        borne_min = round(x-add_to_x, 3)
-        borne_max = x
-        x = x-add_to_x
-        y = -1
-        add_to_x = add_to_x/10
+
+        if a > 0:
+            y=-1
+            #On créer une boucle pour trouver f(x) = 0
+            while y < 0:
+                x = round(x + add_to_x, 3)
+                y = a*x*x + b*x + c
+            borne_min = round(x-add_to_x, 3)
+            borne_max = x
+            x = x-add_to_x
+            y = -1
+            add_to_x = add_to_x/10
+        
+        else:
+            y=1
+            while y > 0:
+                x = round(x + add_to_x, 3)
+                y = a*x*x + b*x + c
+            borne_min = round(x-add_to_x, 3)
+            borne_max = x
+            x = x-add_to_x
+            y = 1
+            add_to_x = add_to_x/10
+
+
+    #On affiche de résultat
     print("Le résultat se trouve dans l'intervale [" + Fore.LIGHTBLUE_EX + str(borne_min) + ";" + str(borne_max) + Fore.RESET + "] avec ")
     print("")
 
